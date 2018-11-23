@@ -10,6 +10,9 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ConfirmEqualvalidatorDirective } from './shared/confirm-equalvalidator.directive';
+
+
 
 
 @NgModule({
@@ -21,6 +24,8 @@ import { FooterComponent } from './footer/footer.component';
     SigninComponent,
     HeaderComponent,
     FooterComponent,
+    ConfirmEqualvalidatorDirective,
+
 
   ],
   imports: [

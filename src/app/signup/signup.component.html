@@ -1,47 +1,73 @@
 <div class="container" id="signup">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 offset-sm-1 offset-md-2 offset-lg-2">
-      <form (ngSumit) = "onSignup(f)" #f = "ngForm">
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
         <div id="user-data">
-          <div class="form-group">
-            <label for="email">Email</label>
+
+          <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+            <label for="email" class="control-label">Email</label>
             <input
-              type="text"
               id="email"
-              class="form-control form-control-lg"
-              ngModel
-              name = "email"
               required
+              pattern="[a-zA-Z0-9.-]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+              name="email"
+              #email="ngModel"
+              [(ngModel)]="model.email"
+              type="text"
+              class="form-control form-control-lg"
             >
+              <span class="help-block" *ngIf = "email.errors?.required && email.touched">Email is required</span>
+              <span class="help-block" *ngIf = "email.errors?.pattern && email.touched">Email is invalid</span>
+
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
+
+          <div class="form-group" [class.has-error]="password.invalid && password.touched" [class.has-success]="password.valid">
+            <label for="password" class="control-label">Password</label>
             <input
-              type="password"
               id="password"
-              class="form-control form-control-lg"
-              ngModel
-              name = "password"
               required
+              name="password"
+              #password="ngModel"
+              [(ngModel)] = "model.password"
+              type="password"
+              class="form-control form-control-lg"
+              minlength="8"
+
             >
+            <div *ngIf="password.touched">
+              <span class="help-block" *ngIf = "password.errors?.required">Password is required. </span>
+              <span class="help-block" *ngIf = "password.errors?.minlength ">Password must be at least 8 characters</span>
+            </div>
+
+
           </div>
-        </div>
-        <div class="form-group">
-          <label for="cpassword">Confirm Password</label>
-          <input
-            type="password"
-            id="cpassword"
-            class="form-control form-control-lg"
-            ngModel
-            name = "cpassword"
-            required
-          >
-        </div>
-        <button
-          id="signupbtn"
-          class="btn btn-primary btn-dark"
-          type="submit"
-           >Sign Up</button>
+
+          <div class="form-group" [class.has-error]="confirmPassword.invalid && confirmPassword.touched">
+            <label for="confirmPassword" class="control-label">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              name = "confirmPassword"
+              appConfirmEqualvalidator="password"
+              required
+              type="password"
+              class="form-control form-control-lg"
+              [(ngModel)]="model.confirmPassword"
+              #confirmPassword="ngModel"
+            >
+            <div *ngIf="confirmPassword.touched">
+              <span  class="help-block" *ngIf = "confirmPassword.errors?.required ">Confirm Password is required </span>
+              <span  class="help-block" *ngIf = "confirmPassword.errors?.notEqual && !confirmPassword.errors?.required">Password and Confirm Password do not match</span>
+            </div>
+            </div>
+          </div>
+
+          <button
+            id="signupbtn"
+            class="btn btn-primary btn-dark"
+            type="submit"
+            [disabled]="f.invalid"
+          >Sign Up</button>
+
       </form>
     </div>
   </div>
