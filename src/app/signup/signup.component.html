@@ -16,8 +16,8 @@
               type="text"
               class="form-control form-control-lg"
             >
-              <span class="help-block" *ngIf = "email.errors?.required && email.touched">Email is required</span>
-              <span class="help-block" *ngIf = "email.errors?.pattern && email.touched">Email is invalid</span>
+              <span class="help-block text-danger" *ngIf = "email.errors?.required && email.touched">Email is required</span>
+              <span class="help-block text-danger" *ngIf = "email.errors?.pattern && email.touched">Email is invalid</span>
 
           </div>
 
@@ -35,8 +35,8 @@
 
             >
             <div *ngIf="password.touched">
-              <span class="help-block" *ngIf = "password.errors?.required">Password is required. </span>
-              <span class="help-block" *ngIf = "password.errors?.minlength ">Password must be at least 8 characters</span>
+              <span class="help-block text-danger" *ngIf = "password.errors?.required">Password is required. </span>
+              <span class="help-block text-danger" *ngIf = "password.errors?.minlength ">Password must be at least 8 characters</span>
             </div>
 
 
@@ -55,8 +55,8 @@
               #confirmPassword="ngModel"
             >
             <div *ngIf="confirmPassword.touched">
-              <span  class="help-block" *ngIf = "confirmPassword.errors?.required ">Confirm Password is required </span>
-              <span  class="help-block" *ngIf = "confirmPassword.errors?.notEqual && !confirmPassword.errors?.required">Password and Confirm Password do not match</span>
+              <span  class="help-block text-danger" *ngIf = "confirmPassword.errors?.required ">Confirm Password is required </span>
+              <span  class="help-block text-danger" *ngIf = "confirmPassword.errors?.notEqual && !confirmPassword.errors?.required">Password and Confirm Password do not match</span>
             </div>
             </div>
           </div>
