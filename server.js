@@ -19,6 +19,6 @@ app.get('/api/instances', (req, res) => {
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/dist/ec2dash/index.html')
-});
+})
 
-app.listen(process.env.PORT || 3000, () => console.log("Server running on port", PORT));
+app.listen(process.env.PORT || 3000, () => console.log("Server running"));
