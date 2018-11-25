@@ -9,7 +9,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/dist/ec2dash/'));
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 //console.log((__dirname + '\\dist\\ec2dash\\'));
 
 //app.use(express.json());
