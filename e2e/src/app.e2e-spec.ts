@@ -12,6 +12,6 @@ jasmine.describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    jasmine.expect(page.getTitleText()).toEqual('ec2dash');
+    jasmine.expect(page.getTitleText()).toEqual('public');
   });
 });
