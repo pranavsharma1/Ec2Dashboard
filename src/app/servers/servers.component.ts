@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+
+import {HttpHeaders} from "@angular/common/http";
+import {ServersService} from "../shared/servers.service";
+
 
 @Component({
   selector: 'app-servers',
@@ -6,17 +11,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-  servers = function getServers() {
-    return [
-      {name:"Test Server 1", id:"a-36334223",type:"t2.large", state:"running", az:"us-east-a",puip:"123.12.13.1",prip:"124.99.122.1"},
-      {name:"Test Server 2", id:"b-345345435",type:"t2.large", state:"stopped", az:"us-east-b",puip:"172.12.13.99",prip:"124.99.122.75"},
-      {name:"Test Server 3", id:"a-45647212f",type:"t2.large", state:"terminating", az:"us-west-a",puip:"172.12.13.100",prip:"124.99.122.64"}
-    ];
-  }();
+  // api call - > returns list of servers https://localhost:3000/instances
+  // servers = result from API call
 
-  constructor() { }
+  servers:any = [];
+
+
+  constructor(private rest:ServersService) { }
 
   ngOnInit() {
+
+    this.getServers();
+
+    /*
+    const headers = new HttpHeaders({'Access-Control-Allow-Origin': '*'});
+    let obs = this.http.get('http://localhost:3000/api/instances');
+    obs.subscribe((response)=> console.log(response));
+    */
   }
+
+  getServers(){
+    this.servers = [];
+    this.rest.getServers().subscribe((data:{})=>{
+      this.servers = data;
+    })
+  }
+
 
 }

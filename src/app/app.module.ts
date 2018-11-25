@@ -10,7 +10,9 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import {HttpClientModule} from "@angular/common/http";
 import { ConfirmEqualvalidatorDirective } from './shared/confirm-equalvalidator.directive';
+
 
 
 
@@ -31,7 +33,8 @@ import { ConfirmEqualvalidatorDirective } from './shared/confirm-equalvalidator.
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
