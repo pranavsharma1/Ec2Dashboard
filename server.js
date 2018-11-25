@@ -22,4 +22,4 @@ app.get('*', (req, res) => {
   res.sendFile(__dirname + '/dist/ec2dash/index.html')
 });
 
-app.listen(PORT);
+app.listen('0.0.0.0',PORT);
