@@ -5,8 +5,9 @@
 const express = require('express');
 const mockServerData = require('./server.mock.json');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use( express.static(__dirname + '/dist/ec2dash/'));
+app.use(express.static(__dirname + '/dist/ec2dash/'));
 
 
 //console.log((__dirname + '\\dist\\ec2dash\\'));
@@ -19,6 +20,6 @@ app.get('/api/instances', (req, res) => {
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + '/dist/ec2dash/index.html')
-})
+});
 
-app.listen(process.env.PORT || 3000, () => console.log("Server running"));
+app.listen(PORT);
