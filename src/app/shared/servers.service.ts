@@ -21,17 +21,17 @@ export class ServersService {
 
   getServers(): Observable<any> {
     const PORT = 3000;
-    return this.http.get('http://localhost:'+ PORT +'/api/instances');
+    return this.http.get('http://0.0.0.0:'+ PORT +'/api/instances');
   }
 
   getSearchResults(searchTerm):Observable<any> {
     const PORT = 3000;
-    return this.http.get('http://localhost:'+ PORT +'/api/instances?search='+searchTerm);
+    return this.http.get('http://0.0.0.0:'+ PORT +'/api/instances?search='+searchTerm);
   }
 
   getSortResults(sortTerm):Observable<any> {
     const PORT = 3000;
-    return this.http.get('http://localhost:'+ PORT +'/api/instances?sortBy='+sortTerm);
+    return this.http.get('http://0.0.0.0:'+ PORT +'/api/instances?sortBy='+sortTerm);
   }
 
 
