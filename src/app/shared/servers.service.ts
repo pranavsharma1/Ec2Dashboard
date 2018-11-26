@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {HttpHeaders} from "@angular/common/http";
+
 import {Observable, of} from "rxjs";
-import {map} from "rxjs/internal/operators";
+
 import {Response} from "@angular/http";
 
 @Injectable({
@@ -20,10 +20,22 @@ export class ServersService {
   }
 
   getServers(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/instances');
+    const PORT = 3000;
+    return this.http.get('http://localhost:'+ PORT +'/api/instances');
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  getSearchResults(searchTerm):Observable<any> {
+    const PORT = 3000;
+    return this.http.get('http://localhost:'+ PORT +'/api/instances?search='+searchTerm);
+  }
+
+  getSortResults(sortTerm):Observable<any> {
+    const PORT = 3000;
+    return this.http.get('http://localhost:'+ PORT +'/api/instances?sortBy='+sortTerm);
+  }
+
+
+  /*private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
@@ -35,7 +47,8 @@ export class ServersService {
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
 
+  }
+   */
 
 }

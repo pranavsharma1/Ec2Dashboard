@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DashStatusService} from "../shared/dash-status.service";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isDashActive:boolean = false;
+  constructor(private dashStatus: DashStatusService) {
+    this.dashStatus.statusUpdated.subscribe(
+      (status:boolean) => {
+        this.isDashActive = status;
+      }
+    );
+
+  }
 
   ngOnInit() {
   }
+
 
 }

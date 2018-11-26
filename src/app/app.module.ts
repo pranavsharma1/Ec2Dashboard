@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ConfirmEqualvalidatorDirective } from './shared/confirm-equalvalidator.directive';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 
@@ -34,7 +35,8 @@ import { ConfirmEqualvalidatorDirective } from './shared/confirm-equalvalidator.
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-
-import {HttpHeaders} from "@angular/common/http";
+import {Component, OnInit, Input} from '@angular/core';
 import {ServersService} from "../shared/servers.service";
+import {DashStatusService} from "../shared/dash-status.service";
+
 
 
 @Component({
@@ -15,13 +14,16 @@ export class ServersComponent implements OnInit {
   // servers = result from API call
 
   servers:any = [];
-
-
-  constructor(private rest:ServersService) { }
+  dashStatus:boolean  = false;
+  inputSearch:string = "";
+  sortSelected:string;
+  constructor(private rest:ServersService, private dashserve:DashStatusService) { }
 
   ngOnInit() {
 
     this.getServers();
+    this.dashStatus = true;
+    this.dashserve.statusUpdated.emit(this.dashStatus);
 
     /*
     const headers = new HttpHeaders({'Access-Control-Allow-Origin': '*'});
@@ -30,12 +32,26 @@ export class ServersComponent implements OnInit {
     */
   }
 
+  onSearch() {
+    this.rest.getSearchResults(this.inputSearch).subscribe((data:{})=> {
+      this.servers = data;
+    })
+  };
+
+  onSort(value) {
+    this.rest.getSortResults(value).subscribe((data:{})=> {
+      this.servers = data;
+    })
+  };
+
   getServers(){
     this.servers = [];
     this.rest.getServers().subscribe((data:{})=>{
       this.servers = data;
     })
   }
+
+
 
 
 }
