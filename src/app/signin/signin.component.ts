@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signin',
@@ -7,13 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
+  @ViewChild('f') signinForm:NgForm;
   model:any = {};
-  constructor() { }
+  loginFailed:boolean = false;
+
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
-  onSignin(){
+  onSignin(signinform:NgForm){
+    console.log(signinform);
+    let email = this.signinForm.controls.email.value;
+    let password = this.signinForm.controls.password.value;
+
+    if(email == 'admin@admin.com' && password == '12345678'){
+      this.router.navigate(['dashboard'])
+    }else{
+      this.loginFailed = true;
+    }
 
   }
 }
