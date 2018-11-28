@@ -5,3 +5,8 @@
 th a {
   display: block;
 }
+
+.pagination-view {
+  align-content: center;
+  align: center;
+}

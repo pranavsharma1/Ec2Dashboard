@@ -19,9 +19,9 @@ export class ServersService {
     return body || { };
   }
 
-  getServers(): Observable<any> {
+  getServers(pageNumber, entries): Observable<any> {
     const PORT = 3000;
-    return this.http.get('http://localhost:'+ PORT +'/api/instances');
+    return this.http.get('http://localhost:'+ PORT +'/api/instances?pageno=' + pageNumber + '&&itemsinpage=' + entries);
   }
 
   getSearchResults(searchTerm):Observable<any> {

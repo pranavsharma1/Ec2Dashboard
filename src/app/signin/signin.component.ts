@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import {UsersService} from "../shared/users.service";
 
 @Component({
   selector: 'app-signin',
@@ -13,21 +14,22 @@ export class SigninComponent implements OnInit {
   model:any = {};
   loginFailed:boolean = false;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private user: UsersService) { }
 
   ngOnInit() {
   }
 
-  onSignin(signinform:NgForm){
-    console.log(signinform);
+  onSignin(signinForm:NgForm){
     let email = this.signinForm.controls.email.value;
     let password = this.signinForm.controls.password.value;
-
-    if(email == 'admin@admin.com' && password == '12345678'){
-      this.router.navigate(['dashboard'])
-    }else{
-      this.loginFailed = true;
-    }
-
+    let userCred = {"email": email,"password":password};
+    this.user.matchCredentials(userCred).subscribe(
+      data => {
+        this.router.navigate(['dashboard'])
+      },
+      error => {
+        this.router.navigate(['signin'])
+      }
+    )
   }
 }
