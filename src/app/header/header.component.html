@@ -3,6 +3,6 @@
     <div class="navbar-header">
         <a routerLink="/" class="navbar-brand leftalign">EC2 Dashboard</a>
     </div>
-    <button *ngIf="isDashActive" class="btn btn-primary logout-btn">Log Out</button>
+    <button *ngIf="isDashActive" class="btn btn-primary logout-btn" id="logout" (click)="onLogout()">Log Out</button>
   </div>
 </nav>

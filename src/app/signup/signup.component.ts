@@ -10,11 +10,14 @@ export class SignupComponent implements OnInit {
 
   model:any = {};
 
+  users:any = [];
+
   ngOnInit() {
   }
 
   onSubmit(){
-    alert(JSON.stringify(this.model));
+
+
   }
 
 

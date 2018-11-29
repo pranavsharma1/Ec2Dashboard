@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DashStatusService} from "../shared/dash-status.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import {DashStatusService} from "../shared/dash-status.service";
 export class HeaderComponent implements OnInit {
 
   isDashActive:boolean = false;
-  constructor(private dashStatus: DashStatusService) {
+  constructor(private dashStatus: DashStatusService,private router:Router) {
     this.dashStatus.statusUpdated.subscribe(
       (status:boolean) => {
         this.isDashActive = status;
@@ -19,6 +20,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onLogout(){
+    this.router.navigate(['signin']);
+
   }
 
 

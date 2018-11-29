@@ -4,9 +4,16 @@ export class AppPage {
   navigateTo() {
     return browser.get('/');
   }
-
-  getTitleText() {
-    //noinspection TypeScriptUnresolvedFunction
-    return element(by.css('app-root')).getText();
+  navigateToDashboard(){
+    return browser.get('/dashboard')
   }
+
+  getEmail(){
+    return  element(by.id ('email'));
+  }
+  getPassword(){
+    return element(by.id('password'));
+  }
+
+
 }

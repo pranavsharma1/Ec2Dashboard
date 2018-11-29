@@ -1,5 +1,17 @@
 [
-  {"name":"Test Server 1", "id":"a-36334223","type":"t2.large", "state":"running", "az":"us-east-a","puip":"123.12.13.1","prip":"124.99.122.1"},
-  {"name":"Test Server 2", "id":"b-345345435","type":"t2.large", "state":"stopped", "az":"us-east-b","puip":"172.12.13.99","prip":"124.99.122.75"},
-  {"name":"Test Server 3", "id":"a-45647212f","type":"t2.large", "state":"terminating", "az":"us-west-a","puip":"172.12.13.100","prip":"124.99.122.64"}
+  {"name":"Test Server 1", "id":"a-36334223","type":"t2.small", "state":"terminating", "az":"us-east-a","puip":"123.12.13.1","prip":"124.99.122.1"},
+  {"name":"Test Server 2", "id":"b-345345435","type":"m2.large", "state":"stopped", "az":"us-east-b","puip":"172.12.13.99","prip":"124.99.122.75"},
+  {"name":"Test Server 3", "id":"c-45647212f","type":"c2.medium", "state":"terminating", "az":"us-west-a","puip":"172.12.13.100","prip":"124.99.122.64"},
+  {"name":"Test Server 4", "id":"f-36334223","type":"t1.large", "state":"running", "az":"us-asia-a","puip":"123.12.13.1","prip":"124.99.122.1"},
+  {"name":"Test Server 5", "id":"z-345345435","type":"k4.large", "state":"stopped", "az":"us-east-b","puip":"172.12.13.99","prip":"124.99.122.75"},
+  {"name":"Test Server 6", "id":"g-45647212f","type":"l1.medium", "state":"terminating", "az":"us-west-a","puip":"172.12.13.100","prip":"124.99.122.64"},
+  {"name":"Test Server 7", "id":"a-36334223","type":"a4.small", "state":"running", "az":"us-east-a","puip":"123.12.13.1","prip":"124.99.122.1"},
+  {"name":"Test Server 8", "id":"l-345345435","type":"c2.large", "state":"stopped", "az":"us-east-b","puip":"172.12.13.99","prip":"124.99.122.75"},
+  {"name":"Test Server 9", "id":"i-45647212f","type":"t4.small", "state":"terminating", "az":"us-europe-a","puip":"172.12.13.100","prip":"124.99.122.64"},
+  {"name":"Test Server 10", "id":"f-36334223","type":"k1.large", "state":"running", "az":"us-east-a","puip":"123.12.13.1","prip":"124.99.122.1"},
+  {"name":"Test Server 11", "id":"d-345345435","type":"t4.large", "state":"stopped", "az":"us-east-b","puip":"172.12.13.99","prip":"124.99.122.75"},
+  {"name":"Test Server 12", "id":"an-45647212f","type":"e2.small", "state":"running", "az":"us-west-a","puip":"172.12.13.100","prip":"124.99.122.64"},
+  {"name":"Test Server 13", "id":"d-345345435","type":"t4.large", "state":"stopped", "az":"us-east-b","puip":"172.12.13.99","prip":"124.99.122.75"},
+  {"name":"Test Server 14", "id":"an-45647212f","type":"e2.small", "state":"running", "az":"us-west-a","puip":"172.12.13.100","prip":"124.99.122.64"}
+
 ]

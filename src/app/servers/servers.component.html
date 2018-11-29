@@ -1,8 +1,31 @@
 <div class="container" id="dashboard">
-  <input class="form-control" type="text" [(ngModel)]="inputSearch" (input)="onSearch()"  placeholder="Search" >
+  <input class="form-control" type="text" [(ngModel)]="inputSearch" (input)="onSearch()" id="searchBar"  placeholder="Search"/>
   <br><br>
-  <h4>Instance Information</h4>
 
+  <div>
+    <div class="inline-block">
+      <h4>Instance Information</h4>
+    </div>
+    <div class="pull-right" > Items in page :
+      <select (change)="setVal($event.target.value)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+
+
+
+
+
+
+    <br>
+
+  </div>
+
+
+<div class="servers-view">
+  <div class="table-container">
   <table class="table table-striped" >
     <thead >
     <tr>
@@ -17,16 +40,41 @@
     </thead>
     <tbody>
     <tr *ngFor = "let server of servers">
-      <td>{{server.id}}</td>
-      <td>{{server.name}}</td>
-      <td>{{server.type}}</td>
-      <td>{{server.state}}</td>
-      <td>{{server.az}}</td>
-      <td>{{server.puip}}</td>
-      <td>{{server.prip}}</td>
+      <td id="idData">{{server.id}}</td>
+      <td id="nameData">{{server.name}}</td>
+      <td id="TypeData">{{server.type}}</td>
+      <td id="stateData">{{server.state}}</td>
+      <td id="azData">{{server.az}}</td>
+      <td id="puipData">{{server.puip}}</td>
+      <td id="pripData">{{server.prip}}</td>
     </tr>
     </tbody>
   </table>
-</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-0 col-sm-10 col-md-8 col-lg-8 offset-xs-1 offset-sm-3 offset-md-4 offset-lg-5">
+      <nav aria-label="Page navigation example"  class="pagination-view">
+        <ul class="pagination ">
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)" (click)="loadPage(1)" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li *ngFor = "let page of pages" class="page-item"><a class="page-link" href="javascript:void(0)" (click)="loadPage(page)">{{page}}</a></li>
+          <li class="page-item">
+            <a class="page-link" href="javascript:void(0)" (click)="loadLastPage()" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
+  </div>
+
+
+</div>
+</div>
 

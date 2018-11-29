@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {Router} from "@angular/router";
+import {UsersService} from "../shared/users.service";
 
 @Component({
   selector: 'app-signin',
@@ -7,13 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
+  @ViewChild('f') signinForm:NgForm;
   model:any = {};
-  constructor() { }
+  loginFailed:boolean = false;
+
+  constructor(private router:Router, private user: UsersService) { }
 
   ngOnInit() {
   }
 
-  onSignin(){
-
+  onSignin(signinForm:NgForm){
+    let email = this.signinForm.controls.email.value;
+    let password = this.signinForm.controls.password.value;
+    let userCred = {"email": email,"password":password};
+    this.user.matchCredentials(userCred).subscribe(
+      data => {
+        this.router.navigate(['dashboard'])
+      },
+      error => {
+        this.router.navigate(['signin'])
+      }
+    )
   }
 }

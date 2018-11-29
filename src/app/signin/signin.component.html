@@ -13,9 +13,8 @@
             [(ngModel)]="model.email"
             type="text"
             class="form-control form-control-lg"
+            ngModel
           >
-          {{model.email}}
-          <!--[ngStyle]="{'border-color' : email.valid ? 'blue' : 'red'}"-->
 
           <span class="help-block text-danger" *ngIf = "email.errors?.required && email.touched">Email is required</span>
 
@@ -40,13 +39,11 @@
 
       </form>
       <br>
-      <hr>
-      <div class="text-center">
-        <a href="/signup">Don't have an account yet? Sign Up!</a>
+      <div class="alert">
+        <span class="alert alert-danger" role="alert" *ngIf = "loginFailed">Login Failed!</span>
       </div>
 
-      <!--<button class="btn btn-info btn-block" id="signupbtn">Sign Up</button>-->
-
+      <hr>
 
     </div>
   </div>
