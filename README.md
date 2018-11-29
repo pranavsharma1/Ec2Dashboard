@@ -20,7 +20,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ## Running the project locally
-Required - NodeJs Installed
+**Strong text** Required - NodeJs Installed
 
 Instructions:
 Download the project zip file and extract
