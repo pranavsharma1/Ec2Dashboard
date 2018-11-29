@@ -8,10 +8,11 @@ password - Hello123
 
 # Tools Used
 
-Angular - Front-End Framework
-Express - Server
-Node    - Javascript Runtime
 
+* Angular - Front-End Framework
+* Express - Server
+* Node    - Javascript Runtime
+             
 # Ec2dash
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
