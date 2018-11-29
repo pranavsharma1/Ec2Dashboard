@@ -30,6 +30,14 @@ describe('workspace-project App', () => {
       },10000)
     });
     expect(currentUrlDashboard).toBe('http://localhost:4200/dashboard');
+    let currentUrlsignin = element(by.id('logout')).click().then(()=>{
+      return browser.driver.wait(() =>{
+        return browser.getCurrentUrl();
+      })
+    });
+    expect(currentUrlsignin).toBe('http://localhost:4200/signin');
+
+
   });
 
   it('should allow search', () => {
@@ -47,6 +55,13 @@ describe('workspace-project App', () => {
     searchText.sendKeys('europe');
     let searchMatch = element.all(by.id('azData')).first();
     expect(searchMatch.getText()).toBe('us-europe-a');
+
+    let currentUrlsignin = element(by.id('logout')).click().then(()=>{
+      return browser.driver.wait(() =>{
+        return browser.getCurrentUrl();
+      })
+    });
+    expect(currentUrlsignin).toBe('http://localhost:4200/signin');
   });
 
   it('should allow user defined # of entries per page', () => {
@@ -63,9 +78,14 @@ describe('workspace-project App', () => {
     element(by.id('ten')).click();
     let list = element.all(by.css('#idData'));
     expect(list.count()).toBe(10);
+
+    let currentUrlsignin = element(by.id('logout')).click().then(()=>{
+      return browser.driver.wait(() =>{
+        return browser.getCurrentUrl();
+      })
+    });
+    expect(currentUrlsignin).toBe('http://localhost:4200/signin');
   });
-
-
 
   it('should allow logout', () => {
     page.navigateTo();
