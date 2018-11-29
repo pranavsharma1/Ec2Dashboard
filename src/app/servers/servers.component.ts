@@ -32,6 +32,7 @@ export class ServersComponent implements OnInit {
    * @param val A value to change the filtering the number of records disaplyed
    */
   setVal(val) {
+    this.currentPage = 1;
     this.entriesInPage = val;
     this.getServers();
   }
