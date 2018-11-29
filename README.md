@@ -3,8 +3,8 @@
 http://ec2-52-90-115-49.compute-1.amazonaws.com:3000/
 
 User Credentials to be used:
-email - admin@dashboard.com
-password - Hello123
+* email - admin@dashboard.com
+* password - Hello123
 
 # Tools Used
 
