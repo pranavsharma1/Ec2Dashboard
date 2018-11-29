@@ -9,6 +9,12 @@ import {Observable} from "rxjs";
 export class UsersService {
 
   constructor(private http:HttpClient) { }
+
+  /**
+   * Utilizes the Http service to authenticate user
+   * @param userCred Credentials that are passed for authentication
+   * @returns {Observable<Object>}
+   */
   matchCredentials(userCred): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({

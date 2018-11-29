@@ -19,6 +19,10 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Call the backend service with provide credentials from the user
+   * @param signinForm object to extract the credentials from
+   */
   onSignin(signinForm:NgForm){
     let email = this.signinForm.controls.email.value;
     let password = this.signinForm.controls.password.value;
@@ -29,6 +33,7 @@ export class SigninComponent implements OnInit {
       },
       error => {
         this.router.navigate(['signin'])
+        this.loginFailed = true;
       }
     )
   }

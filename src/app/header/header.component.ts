@@ -22,8 +22,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  /**
+   * Logs the user out of the application
+   */
   onLogout(){
     this.router.navigate(['signin']);
+    this.isDashActive = false;
 
   }
 

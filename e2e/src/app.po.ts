@@ -4,9 +4,6 @@ export class AppPage {
   navigateTo() {
     return browser.get('/');
   }
-  navigateToDashboard(){
-    return browser.get('/dashboard')
-  }
 
   getEmail(){
     return  element(by.id ('email'));

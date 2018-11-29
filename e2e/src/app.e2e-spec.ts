@@ -32,7 +32,7 @@ describe('workspace-project App', () => {
     expect(currentUrlDashboard).toBe('http://localhost:4200/dashboard');
   });
 
- /* it('should allow search', () => {
+  it('should allow search', () => {
     page.navigateTo();
     let email = page.getEmail();
     let password = page.getPassword();
@@ -45,9 +45,25 @@ describe('workspace-project App', () => {
     });
     let searchText = element(by.id('searchBar'));
     searchText.sendKeys('europe');
-    expect().toBe('http://localhost:4200/signin');
-  });*/
+    let searchMatch = element.all(by.id('azData')).first();
+    expect(searchMatch.getText()).toBe('us-europe-a');
+  });
 
+  it('should allow user defined # of entries per page', () => {
+    page.navigateTo();
+    let email = page.getEmail();
+    let password = page.getPassword();
+    email.sendKeys('admin@dashboard.com');
+    password.sendKeys('Hello123');
+    element(by.id('signinbtn')).click().then(()=>{
+      return browser.driver.wait(() =>{
+        return browser.getCurrentUrl();
+      },2000)
+    });
+    element(by.id('ten')).click();
+    let list = element.all(by.css('#idData'));
+    expect(list.count()).toBe(10);
+  });
 
 
 
