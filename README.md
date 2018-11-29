@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
-# View Project
+## View Project
 
 http://ec2-52-90-115-49.compute-1.amazonaws.com:3000/
 
@@ -10,7 +10,7 @@ User Credentials to be used:
 * email - admin@dashboard.com
 * password - Hello123
 
-# Tools Used
+## Tools Used
 
 
 * Angular - Front-End Framework
