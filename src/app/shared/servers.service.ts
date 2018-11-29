@@ -18,21 +18,7 @@ export class ServersService {
         '&&desc=' + desc.toString()
     );
   }
-
-  /*getServers(pageNumber, entries): Observable<any> {
-    const PORT = 3000;
-    return this.http.get('http://localhost:'+ PORT +'/api/instances?pageno=' + pageNumber + '&&itemsinpage=' + entries);
+    const PORT = process.env.PORT || 3000;
+    return this.http.get('http://0.0.0.0:'+ PORT +'/api/instances?sortBy='+sortTerm);
   }
-
-  getSearchResults(searchTerm):Observable<any> {
-    const PORT = 3000;
-    return this.http.get('http://localhost:'+ PORT +'/api/instances?search='+searchTerm);
-  }
-
-  getSortResults(sortTerm):Observable<any> {
-    const PORT = 3000;
-    return this.http.get('http://localhost:'+ PORT +'/api/instances?sortBy='+sortTerm);
-  }*/
-
-
 }
