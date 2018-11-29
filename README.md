@@ -1,6 +1,7 @@
 # Ec2dash
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+This project requires Node Js v10.13.0 or higher to run locally.
 
 ## View Project
 
@@ -15,21 +16,21 @@ User Credentials to be used:
 
 * Angular - Front-End Framework
 * Express - Server
-* Node    - Javascript Runtime
-             
-
-
+* Node    - Javascript Runtime v10.13.0
+* Protractor - e2e testing             
 
 
 ## Running the project locally
-**Required** - NodeJs Installed
+**Required** - NodeJs(v10.13.0) Installed
 
 Instructions:
 Download the project zip file and extract
 
 1.Run `npm install` in the terminal
 
-2.Run `npm run ng serve` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2.Run `node server.js`
+
+3.Run `npm run ng serve` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
