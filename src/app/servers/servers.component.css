@@ -1,5 +1,6 @@
 #dashboard{
   padding-top: 30px;
+  padding-bottom: 60px;
 }
 
 .table-container{
@@ -8,4 +9,12 @@
 
 th a {
   display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+#dropdown{
+  float: right;
 }

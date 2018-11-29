@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ServersService} from "../shared/servers.service";
 import {DashStatusService} from "../shared/dash-status.service";
 
+
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
@@ -14,37 +15,39 @@ export class ServersComponent implements OnInit {
   entriesInPage:number = 5;
   dashStatus:boolean  = false;
   inputSearch:string = "";
+  sortBy:string = "";
   currentPage:number = 1;
+  desc:boolean = false;
   constructor(private rest:ServersService, private dashserve:DashStatusService) { }
 
   ngOnInit() {
-
     this.getServers();
     this.dashStatus = true;
     this.dashserve.statusUpdated.emit(this.dashStatus);
 
   }
 
-  onSearch() {
+  setVal(val) {
+    this.entriesInPage = val;
+    this.getServers();
+  }
 
-    this.rest.getSearchResults(this.inputSearch).subscribe((data:{})=> {
-      this.servers = data['results'];
-    })
+  onSearch() {
+    this.getServers();
   };
 
   onSort(value) {
-    this.rest.getSortResults(value).subscribe((data:{})=> {
-      this.servers = data['results'];
-    })
+    if (value === this.sortBy && !this.desc) {
+      this.desc = true;
+    } else {
+      this.desc = false;
+    }
+    this.sortBy = value;
+    this.getServers();
   };
 
   loadPage(page) {
     this.currentPage = page;
-    this.getServers();
-  }
-
-  refreshRows(numberOfItems) {
-    this.entriesInPage = numberOfItems;
     this.getServers();
   }
 
@@ -55,7 +58,7 @@ export class ServersComponent implements OnInit {
 
   getServers() {
     this.servers = [];
-    this.rest.getServers(this.currentPage, this.entriesInPage).subscribe((data: {}) => {
+    this.rest.getResults(this.currentPage, this.entriesInPage, this.inputSearch, this.sortBy, this.desc).subscribe((data: {}) => {
       this.servers = data['results'];
       const numberOfPages = Math.ceil(parseInt(data['size']) / this.entriesInPage);
       this.pages = [];

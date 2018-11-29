@@ -1,8 +1,28 @@
 <div class="container" id="dashboard">
-  <input class="form-control" type="text" [(ngModel)]="inputSearch" (input)="onSearch()"  placeholder="Search"/>
+  <input class="form-control" type="text" [(ngModel)]="inputSearch" (input)="onSearch()" id="searchBar"  placeholder="Search"/>
   <br><br>
-  <br>
-  <h4>Instance Information</h4>
+
+  <div>
+    <div class="inline-block">
+      <h4>Instance Information</h4>
+    </div>
+    <div class="pull-right" > Items in page :
+      <select (change)="setVal($event.target.value)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+
+
+
+
+
+
+    <br>
+
+  </div>
+
 
 <div class="servers-view">
   <div class="table-container">
@@ -20,13 +40,13 @@
     </thead>
     <tbody>
     <tr *ngFor = "let server of servers">
-      <td>{{server.id}}</td>
-      <td>{{server.name}}</td>
-      <td>{{server.type}}</td>
-      <td>{{server.state}}</td>
-      <td>{{server.az}}</td>
-      <td>{{server.puip}}</td>
-      <td>{{server.prip}}</td>
+      <td id="idData">{{server.id}}</td>
+      <td id="nameData">{{server.name}}</td>
+      <td id="TypeData">{{server.type}}</td>
+      <td id="stateData">{{server.state}}</td>
+      <td id="azData">{{server.az}}</td>
+      <td id="puipData">{{server.puip}}</td>
+      <td id="pripData">{{server.prip}}</td>
     </tr>
     </tbody>
   </table>

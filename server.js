@@ -19,7 +19,6 @@ app.use(function(req, res, next) {
 
 app.get('/login',(req,res)=>{
   const authToken = req.headers['authorization'];
-  console.log(authToken);
   for (let token of mockUserData) {
     if (authToken === token) {
       res.status(200).send();
@@ -40,10 +39,12 @@ app.get('/api/instances', (req, res) => {
 
   if (_.has(req.query, 'sortBy')) {
     const sortField = req.query.sortBy;
-    if (_.startsWith(sortField, '-')) {
-      result = _.sortBy(result,sortField).reverse();
-    } else {
-      result = _.sortBy(result, sortField);
+    result = _.sortBy(result, sortField);
+  }
+
+  if (_.has(req.query, 'desc')) {
+    if (req.query.desc === "true") {
+      result = result.reverse();
     }
   }
 
@@ -61,6 +62,8 @@ app.get('/api/instances', (req, res) => {
     result = results;
   }
 
+  let requiredSize = result.length;
+
   if(_.has(req.query, 'pageno') && _.has(req.query, 'itemsinpage')) {
     const pageNum = parseInt(req.query.pageno);
     const numberOfItems = parseInt(req.query.itemsinpage);
@@ -71,7 +74,7 @@ app.get('/api/instances', (req, res) => {
 
   return res.json({
     results: result,
-    size: mockServerData.length
+    size: requiredSize
   });
 });
 

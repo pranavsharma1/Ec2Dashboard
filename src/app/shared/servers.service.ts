@@ -10,8 +10,16 @@ export class ServersService {
 
   constructor(private http: HttpClient) { }
 
+  getResults(pageNumber, entries, searchTerm, sortTerm, desc):Observable<any> {
+    return this.http.get('http://localhost:3000'+'/api/instances?pageno=' + pageNumber +
+      '&&itemsinpage=' + entries +
+      '&&search='+ searchTerm +
+      '&&sortBy='+sortTerm +
+        '&&desc=' + desc.toString()
+    );
+  }
 
-  getServers(pageNumber, entries): Observable<any> {
+  /*getServers(pageNumber, entries): Observable<any> {
     const PORT = 3000;
     return this.http.get('http://localhost:'+ PORT +'/api/instances?pageno=' + pageNumber + '&&itemsinpage=' + entries);
   }
@@ -24,7 +32,7 @@ export class ServersService {
   getSortResults(sortTerm):Observable<any> {
     const PORT = 3000;
     return this.http.get('http://localhost:'+ PORT +'/api/instances?sortBy='+sortTerm);
-  }
+  }*/
 
 
 }
