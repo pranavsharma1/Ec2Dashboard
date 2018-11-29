@@ -1,9 +1,7 @@
 import { AppPage } from './app.po';
-import jasmine = require('jasmine');
 
 
-
-jasmine.describe('workspace-project App', () => {
+describe('workspace-project App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -12,6 +10,6 @@ jasmine.describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    jasmine.expect(page.getTitleText()).toEqual('public');
+    expect(page.getTitleText()).toEqual('ec2dash');
   });
 });

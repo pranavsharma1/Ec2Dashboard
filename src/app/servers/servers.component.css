@@ -2,11 +2,10 @@
   padding-top: 30px;
 }
 
-th a {
-  display: block;
+.table-container{
+  overflow-x: auto;;
 }
 
-.pagination-view {
-  align-content: center;
-  align: center;
+th a {
+  display: block;
 }
