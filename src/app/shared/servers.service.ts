@@ -18,7 +18,4 @@ export class ServersService {
         '&&desc=' + desc.toString()
     );
   }
-    const PORT = process.env.PORT || 3000;
-    return this.http.get('http://0.0.0.0:'+ PORT +'/api/instances?sortBy='+sortTerm);
-  }
 }
